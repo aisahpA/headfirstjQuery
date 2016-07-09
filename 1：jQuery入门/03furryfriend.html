@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furry Friends Campaign</title>
+    <style>
+        #clickMe {
+            background: #D8B36E;
+            padding: 20px;
+            text-align: center;
+            width: 425px;
+            display: block;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+        #picframe {
+            background: #D8B36E;
+            padding: 20px;
+            width: 425px;
+            display: none;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="clickMe">Show Me the Furry Friend of the Day</div>
+    <div id="picframe">
+        <img src="../images/dog.jpeg">
+    </div>
+
+    <script src="../scripts/jquery-1.11.2.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('#clickMe').click(function(){
+               //在jQuery中，要用一种适当的方式对效果排序，以免它们相互冲突，这一点很重要
+               //先在图像上运行淡入效果
+               $("img").fadeIn(1000);
+               $('#picframe').slideToggle("slow");
+           });
+        });
+    </script>
+</body>
+</html>
