@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jump for Joy</title>
+    <style>
+        div {
+            float: left;
+            height: 600px;
+            text-align: left;
+            border: solid #000 3px;
+        }
+        #header {
+            width: 100%;
+            border: 0;
+            height: 50px;
+        }
+        #main {
+            background-color: grey;
+            height: 700px;
+        }
+        .guess_box {
+            height: 600px;
+        }
+        .guess_box img {
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"><h2>Jump for Joy Sale</h2></div>
+    <div id="main">
+        <div class="guess_box"><img src="../images/jump1.jpg"></div>
+        <div class="guess_box"><img src="../images/jump2.jpg"></div>
+        <div class="guess_box"><img src="../images/jump3.jpg"></div>
+        <div class="guess_box"><img src="../images/jump4.jpg"></div>
+    </div>
+
+    <script src="../scripts/jquery-1.11.2.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('.guess_box').click(function(){
+               var discount = Math.floor(Math.random()*5 + 5);
+               var discount_msg = "<p>Your Discount is " + discount + "%</p>";
+
+               //会给所有div都添加
+               //$(".guess_box").append(discount_msg);
+
+               //删除之前的提示
+               $('.guess_box p').remove();
+
+               //"this"指示正在处理的元素
+               $(this).append(discount_msg);
+           });
+        });
+    </script>
+</body>
+</html>
